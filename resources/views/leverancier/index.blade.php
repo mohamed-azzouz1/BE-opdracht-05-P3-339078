@@ -17,6 +17,11 @@
     </div>
 
     <div class="overflow-x-auto">
+    <div class="flex justify-end mb-5 items-center">
+        startdatum: <input type="date" name="startdatum" id="startdatum" class="border border-gray-300 p-2 m-1.5">
+        einddatum: <input type="date" name="einddatum" id="einddatum" class="border border-gray-300 p-2 m-1.5">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="filter">Filter</button>
+    </div>
     <table class="w-3/4 text-white bg-white dark:bg-gray-800 m-auto mt-5 mb-5">
         <thead>
             <th class="px-4 py-2 border border-gray-300">LeverancierNaam</th>
@@ -40,15 +45,13 @@
                     <td class="px-4 py-2 border border-gray-300"> {{$Levarancier ->ProductNaam}}</td>
                     <td class="px-4 py-2 border border-gray-300"> {{$Levarancier ->ProductCount}}</td>
 
+
                 </tr>
             @endforeach
             @endif
         </tbody>
     </table>
-    <div class="m-auto mt-5 mb-5 w-3/4">
-            {{-- pagination buttons --}}
-            {{$Levarancier->links() }}
-        </div>
+
 
 </div>
 

@@ -26,9 +26,7 @@ return new class extends Migration
                 ,LEV.id AS LeverancierId
                 ,LEV.naam AS LeverancierNaam
                 ,LEV.ContactPersoon
-                ,LEV.LeverancierNummer
-                ,LEV.Mobiel
-                ,COUNT(DISTINCT PROD.naam) AS ProductCount
+                ,SUM(PPL.Aantal) AS ProductCount
             
                 FROM Leverancier AS LEV
 
@@ -38,7 +36,7 @@ return new class extends Migration
                 LEFT JOIN product AS PROD
                 ON PROD.Id = PPL.ProductId
 
-                GROUP BY LEV.id, LEV.naam, LEV.ContactPersoon, LEV.LeverancierNummer, LEV.Mobiel
+                GROUP BY LEV.id, LEV.naam, LEV.ContactPersoon, PPL.ProductId, PROD.naam
                 ORDER BY ProductCount desc
                 LIMIT givLIMIT OFFSET givOFFSET;
         END');
