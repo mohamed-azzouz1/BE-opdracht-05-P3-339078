@@ -19,6 +19,15 @@ class LeverancierController extends Controller
     }
     public function index(Request $request)
     {
+        $startdate = $request->input('startdate');
+        $enddate = $request->input('enddate');
+
+        if ($startdate == null) {
+            $startdate = "1900-01-01";
+        }
+        if ($enddate == null) {
+            $enddate = "2100-01-01";
+        }
         $perPage = 25;
         $page = $request->input('page', 1);
         $offset = ($page - 1) * $perPage;
@@ -27,7 +36,7 @@ class LeverancierController extends Controller
 
         // try catch looks if the SP exists
         try{
-            $Levarancier = DB::select('CALL spReadLeverancierOverzicht(?, ?)', [$perPage, $offset]);
+            $Levarancier = DB::select('CALL spReadLeverancierOverzicht(?, ?, ?, ?)', [$perPage, $offset, $startdate, $enddate]);
             
         } catch (\Exception $e) {
             //logs the error in the log
@@ -46,5 +55,11 @@ class LeverancierController extends Controller
        
 
         return view('leverancier.index', compact('Levarancier'));
+    }
+
+    public function spec($ProductNaam)
+    {
+        $Levarancier = $this->LevarancierModel->find($ProductNaam);
+        return view('leverancier.spec', compact('Levarancier'));
     }
 }
