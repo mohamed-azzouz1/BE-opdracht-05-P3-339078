@@ -43,7 +43,8 @@ class LeverancierController extends Controller
         // try catch looks if the SP exists
         try{
             $Levarancier = DB::select('CALL spReadLeverancierOverzicht(?, ?, ?, ?)', [$perPage, $offset, $startdate, $enddate]);
-            
+            $Levarancier = json_decode(json_encode($Levarancier), true);
+
         } catch (\Exception $e) {
             //logs the error in the log
             Log::error('error reading Levra$Levarancier: ' . $e->getMessage());

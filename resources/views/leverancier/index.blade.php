@@ -44,11 +44,13 @@
                 @else
             @foreach($Levarancier as $Levarancier)
                 <tr>
-                    <td class="px-4 py-2 border border-gray-300"> {{$Levarancier ->LeverancierNaam}}</td>
-                    <td class="px-4 py-2 border border-gray-300"> {{$Levarancier ->ContactPersoon}}</td>
-                    <td class="px-4 py-2 border border-gray-300"> {{$Levarancier ->ProductNaam}}</td>
-                    <td class="px-4 py-2 border border-gray-300"> {{$Levarancier ->ProductCount}}</td>
-
+                    <td class="px-4 py-2 border border-gray-300"> {{$Levarancier['LeverancierNaam']}}</td>
+                    <td class="px-4 py-2 border border-gray-300"> {{$Levarancier['ContactPersoon']}}</td>
+                    <td class="px-4 py-2 border border-gray-300"> {{$Levarancier['ProductNaam']}}</td>
+                    <td class="px-4 py-2 border border-gray-300"> {{$Levarancier['ProductCount']}}</td>
+                    <td class="px-4 py-2 border border-gray-300">
+                        <a href="{{ route('leverancier.specifiek', ['ProductNaam' => $Levarancier['ProductNaam']]) }}">Bekijk</a>
+                    </td>
                 </tr>
             @endforeach
             @endif
