@@ -15,10 +15,14 @@ return new class extends Migration
         DB::unprepared(     
             '
         DROP PROCEDURE IF EXISTS spReadLeverancierOverzicht;
-        CREATE PROCEDURE spReadLeverancierOverzicht()
+        CREATE PROCEDURE spReadLeverancierOverzicht(
+            givLIMIT INT
+            ,givOFFSET INT
+        )
         BEGIN
             SELECT
                 PPL.ProductId 
+                ,PROD.naam AS ProductNaam
                 ,LEV.id AS LeverancierId
                 ,LEV.naam AS LeverancierNaam
                 ,LEV.ContactPersoon
@@ -35,7 +39,8 @@ return new class extends Migration
                 ON PROD.Id = PPL.ProductId
 
                 GROUP BY LEV.id, LEV.naam, LEV.ContactPersoon, LEV.LeverancierNummer, LEV.Mobiel
-                ORDER BY ProductCount desc;
+                ORDER BY ProductCount desc
+                LIMIT givLIMIT OFFSET givOFFSET;
         END');
 
 

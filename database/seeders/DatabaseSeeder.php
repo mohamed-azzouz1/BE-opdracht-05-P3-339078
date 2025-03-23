@@ -56,13 +56,13 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('leverancier')->insert([
-            ['naam' => 'Venco', 'contactpersoon' => 'Bert van Linge', 'leveranciernummer' => 'L1029384719', 'mobiel' => '06-28493827'],
-            ['naam' => 'Astra Sweets', 'contactpersoon' => 'Jasper del Monte', 'leveranciernummer' => 'L1029284315', 'mobiel' => '06-39398734'],
-            ['naam' => 'Haribo', 'contactpersoon' => 'Sven Stalman', 'leveranciernummer' => 'L1029324748', 'mobiel' => '06-24383291'],
-            ['naam' => 'Basset', 'contactpersoon' => 'Joyce Stelterberg', 'leveranciernummer' => 'L1023845773', 'mobiel' => '06-48293823'],
-            ['naam' => 'De Bron', 'contactpersoon' => 'Remco Veenstra', 'leveranciernummer' => 'L1023857736', 'mobiel' => '06-34291234'],
-            ['naam' => 'Quality Street', 'contactpersoon' => 'Johan Nooij', 'leveranciernummer' => 'L1029234586', 'mobiel' => '06-23458456'],
-            ['naam' => 'Hom Ken Food', 'contactpersoon' => 'Hom Ken', 'leveranciernummer' => 'L1029234599', 'mobiel' => '06-23458477'],
+            ['ContactId' => '1', 'naam' => 'Venco', 'contactpersoon' => 'Bert van Linge', 'leveranciernummer' => 'L1029384719', 'mobiel' => '06-28493827'],
+            ['ContactId' => '2', 'naam' => 'Astra Sweets', 'contactpersoon' => 'Jasper del Monte', 'leveranciernummer' => 'L1029284315', 'mobiel' => '06-39398734'],
+            ['ContactId' => '3', 'naam' => 'Haribo', 'contactpersoon' => 'Sven Stalman', 'leveranciernummer' => 'L1029324748', 'mobiel' => '06-24383291'],
+            ['ContactId' => '4', 'naam' => 'Basset', 'contactpersoon' => 'Joyce Stelterberg', 'leveranciernummer' => 'L1023845773', 'mobiel' => '06-48293823'],
+            ['ContactId' => '5', 'naam' => 'De Bron', 'contactpersoon' => 'Remco Veenstra', 'leveranciernummer' => 'L1023857736', 'mobiel' => '06-34291234'],
+            ['ContactId' => '6', 'naam' => 'Quality Street', 'contactpersoon' => 'Johan Nooij', 'leveranciernummer' => 'L1029234586', 'mobiel' => '06-23458456'],
+            ['ContactId' => '7', 'naam' => 'Hom Ken Food', 'contactpersoon' => 'Hom Ken', 'leveranciernummer' => 'L1029234599', 'mobiel' => '06-23458477'],
         ]);
 
         DB::table('magazijn')->insert([
@@ -81,7 +81,7 @@ class DatabaseSeeder extends Seeder
             ['ProductId' => 13, 'VerpakkingsEenheid' => 5, 'AantalAanwezig' => 20],
         ]);
 
-        DB::table('product_per_allergeen')->insert([
+        DB::table('ProductPerAllergeen')->insert([
             ['ProductId' => 1, 'AllergeenId' => 2],
             ['ProductId' => 1, 'AllergeenId' => 1],
             ['ProductId' => 1, 'AllergeenId' => 3],
@@ -97,7 +97,7 @@ class DatabaseSeeder extends Seeder
             ['ProductId' => 14, 'AllergeenId' => 5],
         ]);
 
-        DB::table('product_per_leverancier')->insert([
+        DB::table('ProductPerLeverancier')->insert([
             ['LeverancierId' => 1, 'ProductId' => 1, 'DatumLevering' => '2024-10-09', 'Aantal' => 23, 'DatumEerstVolgendeLevering' => '2024-10-16'],
             ['LeverancierId' => 1, 'ProductId' => 1, 'DatumLevering' => '2024-10-18', 'Aantal' => 21, 'DatumEerstVolgendeLevering' => '2024-10-25'],
             ['LeverancierId' => 1, 'ProductId' => 2, 'DatumLevering' => '2024-10-09', 'Aantal' => 12, 'DatumEerstVolgendeLevering' => '2024-10-16'],
