@@ -16,10 +16,10 @@ return new class extends Migration
             '
         DROP PROCEDURE IF EXISTS spReadLeverancierOverzicht;
         CREATE PROCEDURE spReadLeverancierOverzicht(
-            givLIMIT INT
-            ,givOFFSET INT
-            ,startdate DATE
-            ,enddate DATE
+            IN givLIMIT INT
+            ,IN givOFFSET INT
+            ,IN startdate DATE
+            ,IN enddate DATE
         )
         BEGIN
             SELECT
@@ -38,7 +38,7 @@ return new class extends Migration
                 LEFT JOIN product AS PROD
                 ON PROD.Id = PPL.ProductId
 
-                where PPL.DatumLevering BETWEEN startdate AND enddate
+                WHERE PPL.DatumLevering BETWEEN startdate AND enddate
                 GROUP BY LEV.id, LEV.naam, LEV.ContactPersoon, PPL.ProductId, PROD.naam
                 ORDER BY ProductCount desc
                 LIMIT givLIMIT OFFSET givOFFSET;
