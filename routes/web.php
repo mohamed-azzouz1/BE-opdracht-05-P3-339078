@@ -12,5 +12,5 @@ Route::get('/home', function () {
 });
 
 Route::get('/leverancier', [LeverancierController::class, 'index'])->name('leverancier.index');
-Route::post('/leverancier/filter', [LeverancierController::class, 'index'])->name('leverancier.indexfilter');
+Route::post('/leverancier/filter', [LeverancierController::class, 'index'])->name('leverancier.index.filter');
 // Route::get('/leverancier/{ProductNaam}', [LeverancierController::class, 'spec'])->name('leverancier.specifiek');

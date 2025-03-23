@@ -28,6 +28,12 @@ class LeverancierController extends Controller
         if ($enddate == null) {
             $enddate = "2100-01-01";
         }
+        // $date=date_create(");
+        $startdate = new \DateTime($startdate);
+        $enddate = new \DateTime($enddate);
+        $startdate = $startdate->format('Y-m-d');
+        $enddate = $enddate->format('Y-m-d');
+        
         $perPage = 25;
         $page = $request->input('page', 1);
         $offset = ($page - 1) * $perPage;
