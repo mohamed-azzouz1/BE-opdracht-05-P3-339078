@@ -21,8 +21,8 @@
     <div class="flex justify-end mb-5 items-center">
         <form action="{{route('leverancier.index.filter')}}" method="post" class="flex items-center">
             @csrf
-            startdatum: <input type="date" name="startdatum" id="startdatum" class="border border-gray-300 p-2 m-1.5">
-            einddatum: <input type="date" name="einddatum" id="einddatum" class="border border-gray-300 p-2 m-1.5">
+            startdatum: <input type="date" name="startdate" id="startdate" class="border border-gray-300 p-2 m-1.5">
+            einddatum: <input type="date" name="enddate" id="enddate" class="border border-gray-300 p-2 m-1.5">
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Maak selectie</button>
         </form>
     </div>

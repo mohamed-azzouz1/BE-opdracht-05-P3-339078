@@ -47,7 +47,7 @@ class LeverancierController extends Controller
 
         } catch (\Exception $e) {
             //logs the error in the log
-            Log::error('error reading Levra$Levarancier: ' . $e->getMessage());
+            Log::error('error reading Levarancier: ' . $e->getMessage());
             //makes an empty array if the SP doesn't exist
             $Levarancier = [];
         }
@@ -66,7 +66,19 @@ class LeverancierController extends Controller
 
     public function spec($ProductNaam)
     {
-        $Levarancier = $this->LevarancierModel->find($ProductNaam);
-        return view('leverancier.spec', compact('Levarancier'));
+        $total = DB::table('ProductPerLeverancier')->count();
+
+        // try catch looks if the SP exists
+        try{
+            $LevarancierSpec = DB::select('CALL SP_SpecsProducten(?)', [$ProductNaam]);
+
+        } catch (\Exception $e) {
+            //logs the error in the log
+            Log::error('error reading $Levarancier: ' . $e->getMessage());
+            //makes an empty array if the SP doesn't exist
+            $LevarancierSpec = [];
+        }
+
+        return view('leverancier.spec', compact('LevarancierSpec'));
     }
 }
