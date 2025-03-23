@@ -23,10 +23,9 @@ return new class extends Migration
                 PPL.ProductId 
                 ,PPL.Aantal AS ProductCount
                 ,PROD.naam AS ProductNaam
-                ,GROUP_CONCAT(DISTINCT ALLER.Naam SEPARATOR ", ") as Allergeen
+                ,COALESCE(GROUP_CONCAT(DISTINCT ALLER.Naam SEPARATOR ", ")) as Allergeen
                 ,PPL.DatumLevering AS DatumLevering
-                ,min(PPL.DatumLevering) AS MinDatumLevering
-                ,max(PPL.DatumLevering) AS MaxDatumLevering
+
 
                 FROM ProductPerLeverancier AS PPL
 

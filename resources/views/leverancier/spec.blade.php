@@ -18,16 +18,16 @@
     </div>
     <div class="flex justify-start mb-5 items-center">
     <div class="mr-5">
-                <strong>Startdatum:</strong> {{ $LevarancierSpec->MinDatumLevering }}
+                <strong>Startdatum:</strong> {{ $startdate }}
             </div>
             <div class="mr-5">
-                <strong>Einddatum:</strong> {{ $LevarancierSpec->MaxDatumLevering }}
+                <strong>Einddatum:</strong> {{ $enddate }}
             </div>
             <div class="mr-5">
-                <strong>Productnaam:</strong> {{ $LevarancierSpec->ProductNaam }}
+                <strong>Productnaam:</strong> {{ $ProductNaam }}
             </div>
             <div class="mr-5">
-                <strong>Allergenen:</strong> {{ $LevarancierSpec->Allergenen }}
+                <strong>Allergenen:</strong> {{ $Allergenen }}
             </div>
     </div>
     <table class="w-3/4 text-black bg-white  m-auto mt-5 mb-5">

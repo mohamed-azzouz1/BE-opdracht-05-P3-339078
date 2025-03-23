@@ -49,7 +49,7 @@
                     <td class="px-4 py-2 border border-gray-300"> {{$Levarancier['ProductNaam']}}</td>
                     <td class="px-4 py-2 border border-gray-300"> {{$Levarancier['ProductCount']}}</td>
                     <td class="px-4 py-2 border border-gray-300">
-                        <a href="{{ route('leverancier.specifiek', ['ProductNaam' => $Levarancier['ProductNaam']]) }}">Bekijk</a>
+                        <a href="{{ route('leverancier.specifiek', ['ProductNaam' => $Levarancier['ProductNaam'], 'startdate' => request('startdate'), 'enddate' => request('enddate')]) }}">Bekijk</a>
                     </td>
                 </tr>
             @endforeach

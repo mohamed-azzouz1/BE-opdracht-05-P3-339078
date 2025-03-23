@@ -64,9 +64,12 @@ class LeverancierController extends Controller
         return view('leverancier.index', compact('Levarancier'));
     }
 
-    public function spec($ProductNaam)
+    public function spec($ProductNaam, Request $request)
     {
         $total = DB::table('ProductPerLeverancier')->count();
+        $startdate = $request->input('startdate');
+        $enddate = $request->input('enddate');
+        
 
         // try catch looks if the SP exists
         try{
@@ -79,6 +82,16 @@ class LeverancierController extends Controller
             $LevarancierSpec = [];
         }
 
-        return view('leverancier.spec', compact('LevarancierSpec'));
+        $Allergenen = !empty($LevarancierSpec) ? $LevarancierSpec[0]->Allergeen : 'N/A';
+        
+
+        return view('leverancier.spec', [
+            'startdate' => $startdate,
+            'enddate' => $enddate,
+            'LevarancierSpec' => $LevarancierSpec,
+            'ProductNaam' => $ProductNaam,
+            'Allergenen' => $Allergenen
+        ]);
+        
     }
 }
