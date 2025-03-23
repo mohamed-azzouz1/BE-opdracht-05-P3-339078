@@ -19,12 +19,12 @@
             </style>
         @endif
     </head>
-    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-3 lg:p-4 items-center lg:justify-start min-h-screen flex-col">
-        <header class="w-full lg:max-w-4xl max-w-[335px] text-white text-3xl mb-6 ">
+    <body class="bg-[#FDFDFC] text-black flex p-3 lg:p-4 items-center lg:justify-start min-h-screen flex-col">
+        <header class="w-full lg:max-w-4xl max-w-[335px] text-black text-3xl mb-6 ">
             <h1>homepagina</h1>
         </header>
         <div class="w-full lg:max-w-4xl max-w-[335px] flex flex-col">
-            <main class="flex flex-col gap-4 text-white text-xl" >
+            <main class="flex flex-col gap-4 text-black text-xl" >
                 <a href="{{ route('leverancier.index') }}">overzicht geleverde producten</a>
             </main>
         </div>
